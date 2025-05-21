@@ -26,7 +26,12 @@ openTaskFormBtn.addEventListener("click", () =>
 );
 
 closeTaskFormBtn.addEventListener("click", () => {
-    confirmCloseDialog.showModal();
+    if (titleInput.value || dateInput.value || descriptionInput.value) {
+        confirmCloseDialog.showModal();
+    } else {
+        reset();
+    }
+
 });
 
 cancelBtn.addEventListener("click", () => confirmCloseDialog.close());
